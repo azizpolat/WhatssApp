@@ -1,0 +1,12 @@
+export const TABNAVIGATOR = 'TABNAVIGATOR';
+export const PHONENUMBER = 'Phone Number';
+export const COUNTRIESCODE = 'Select Countries';
+export const USEREGISTORONINFO = 'User Registion Info';
+export const STATUS = 'Status';
+export const MESSAGE = 'Message';
+export const CALLS = 'Calls';
+export const CAMERA = 'Camera';
+export const CHATS = 'Chats';
+export const SETTINGS = 'Settings';
+export const CONTACTS = 'Contacts';
+export const EDITPROFILE = 'Edit Profile';
