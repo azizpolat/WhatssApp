@@ -8,6 +8,7 @@ import {
   MESSAGE,
   PHONENUMBER,
   TABNAVIGATOR,
+  USERCALL,
   USEREGISTORONINFO,
 } from '../utils/routes';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -24,6 +25,7 @@ import Contacts from '../screens/contacts';
 import ChatRoom from '../screens/chats/chatRoom';
 import {APPSTATE} from '../utils/contants';
 import EditProfile from '../screens/profile/editProfile';
+import UserCall from '../screens/calls/userCall';
 
 const RootNavigation: React.FC = () => {
   const Stack = createNativeStackNavigator();
@@ -86,6 +88,7 @@ const RootNavigation: React.FC = () => {
         component={CountriesCode}
       />
       <Stack.Screen options={{}} name={CONTACTS} component={Contacts} />
+      <Stack.Screen options={{}} name={USERCALL} component={UserCall} />
     </Stack.Navigator>
   );
 };

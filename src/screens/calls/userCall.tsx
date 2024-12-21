@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text} from 'react-native';
 
-const UserCalls: React.FC<Props> = ({navigation, route}) => {
+const UserCall: React.FC<Props> = ({navigation, route}) => {
   return (
     <SafeAreaView style={styles.container}>
       <Text>UserCalls</Text>
@@ -9,7 +9,7 @@ const UserCalls: React.FC<Props> = ({navigation, route}) => {
   );
 };
 
-export default UserCalls;
+export default UserCall;
 
 const styles = StyleSheet.create({
   container: {

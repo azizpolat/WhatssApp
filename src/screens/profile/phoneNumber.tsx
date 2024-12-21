@@ -30,13 +30,31 @@ const PhoneNumber: React.FC = () => {
     }
   }
 
+  const capitalizeWords = sentence => {
+    return sentence
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  };
+
+  const sentence =
+    'Please confirm your country code and enter your phone number';
+  const capitalizedSentence = capitalizeWords(sentence);
+  console.log(capitalizedSentence);
+
   useEffect(() => {
     dispatch(getCountriesCode());
   }, []);
   return (
     <SafeAreaView style={defaultStyle.container}>
-      <Text style={{fontSize: 18, textAlign: 'center', marginTop: 20}}>
-        Please confirm your country code and enter your phone number{' '}
+      <Text
+        style={{
+          fontSize: 18,
+          textAlign: 'center',
+          marginTop: 20,
+          fontWeight: 'bold',
+        }}>
+        {capitalizedSentence}
       </Text>
       <PhoneInput
         value={phoneNumber}

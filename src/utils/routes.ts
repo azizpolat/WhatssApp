@@ -10,3 +10,4 @@ export const CHATS = 'Chats';
 export const SETTINGS = 'Settings';
 export const CONTACTS = 'Contacts';
 export const EDITPROFILE = 'Edit Profile';
+export const USERCALL = 'User Call';

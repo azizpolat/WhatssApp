@@ -6,6 +6,8 @@ import {useNavigation} from '@react-navigation/native';
 import {converFullName} from '../../utils/function';
 import moment from 'moment';
 import firestore from '@react-native-firebase/firestore';
+import UserCall from '../../screens/calls/userCall';
+import {USERCALL} from '../../utils/routes';
 
 const ContactHeader: React.FC<Props> = ({recipiendIdPhoneNumber}) => {
   const navigation = useNavigation();
@@ -59,9 +61,11 @@ const ContactHeader: React.FC<Props> = ({recipiendIdPhoneNumber}) => {
           )}
         </View>
       </View>
-      <View style={{margin: 10}}>
+      <Pressable
+        onPress={() => navigation.navigate(USERCALL)}
+        style={{margin: 10}}>
         <FontAwesome6 name="phone" size={30} color={Colors.BLUE_1} />
-      </View>
+      </Pressable>
     </View>
   );
 };
