@@ -10,4 +10,4 @@ export const CHATS = 'Chats';
 export const SETTINGS = 'Settings';
 export const CONTACTS = 'Contacts';
 export const EDITPROFILE = 'Edit Profile';
-export const USERCALL = 'User Call';
+export const USERCALL = 'End To End Encripter';

@@ -6,12 +6,32 @@ import {useNavigation} from '@react-navigation/native';
 import {converFullName} from '../../utils/function';
 import moment from 'moment';
 import firestore from '@react-native-firebase/firestore';
-import UserCall from '../../screens/calls/userCall';
 import {USERCALL} from '../../utils/routes';
 
 const ContactHeader: React.FC<Props> = ({recipiendIdPhoneNumber}) => {
   const navigation = useNavigation();
   const [user, setUser] = useState();
+
+  const userCall = async () => {
+    await firestore()
+      .collection('Calls')
+      //  .doc(chatRoomId)
+      //  .collection('calls')
+      .add({
+        from: user?.phoneNumber,
+        to: recipiendIdPhoneNumber,
+        timestamo: firestore.FieldValue.serverTimestamp(),
+        time: 0,
+        status: 0,
+      })
+      .then(data => {
+        console.log(data.id);
+        navigation.navigate(USERCALL, {
+          user: user,
+          callId: data.id,
+        });
+      });
+  };
 
   useEffect(() => {
     firestore()
@@ -61,9 +81,7 @@ const ContactHeader: React.FC<Props> = ({recipiendIdPhoneNumber}) => {
           )}
         </View>
       </View>
-      <Pressable
-        onPress={() => navigation.navigate(USERCALL)}
-        style={{margin: 10}}>
+      <Pressable onPress={() => userCall()} style={{margin: 10}}>
         <FontAwesome6 name="phone" size={30} color={Colors.BLUE_1} />
       </Pressable>
     </View>

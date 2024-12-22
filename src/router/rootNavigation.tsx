@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {firebase} from '@react-native-firebase/auth';
-
+import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import {
   CONTACTS,
   COUNTRIESCODE,
@@ -26,6 +26,7 @@ import ChatRoom from '../screens/chats/chatRoom';
 import {APPSTATE} from '../utils/contants';
 import EditProfile from '../screens/profile/editProfile';
 import UserCall from '../screens/calls/userCall';
+import {name} from '../../node_modules/react-devtools-core/dist/parseHookNames.chunk';
 
 const RootNavigation: React.FC = () => {
   const Stack = createNativeStackNavigator();
@@ -88,7 +89,22 @@ const RootNavigation: React.FC = () => {
         component={CountriesCode}
       />
       <Stack.Screen options={{}} name={CONTACTS} component={Contacts} />
-      <Stack.Screen options={{}} name={USERCALL} component={UserCall} />
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: Colors.BLACK,
+          },
+          headerTintColor: Colors.WHITE,
+          headerRight: () => (
+            <Pressable>
+              <FontAwesome6 name="user-plus" color={Colors.WHITE} size={20} />
+            </Pressable>
+          ),
+        }}
+        name={USERCALL}
+        component={UserCall}
+      />
     </Stack.Navigator>
   );
 };

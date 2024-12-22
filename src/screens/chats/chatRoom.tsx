@@ -27,9 +27,9 @@ const ChatRoom: React.FC = ({route}) => {
   const [loading, setLoading] = useState(false);
   const [roomId, setRoomId] = useState(route?.params?.chatRoomId);
   const recipiendIdPhoneNumber = route?.params?.recipiendIdPhoneNumber;
-
   const {selectCountry, phoneNumber} = useSelector(state => state.auth);
   const currentUserId = `${selectCountry.code}${phoneNumber}`;
+
   const sendMessage = async chatRoomId => {
     await firestore()
       .collection('ChatRooms')

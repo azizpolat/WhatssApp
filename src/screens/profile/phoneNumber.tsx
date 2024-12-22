@@ -11,11 +11,19 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Colors from '../../thema/colors';
 import {useNavigation} from '@react-navigation/native';
 import {USEREGISTORONINFO} from '../../utils/routes';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const PhoneNumber: React.FC = () => {
   const {phoneNumber, selectCountry} = useSelector(state => state.auth);
   const dispatch = useDispatch();
   const navigation = useNavigation();
+
+  const storeData = async value => {
+    try {
+      await AsyncStorage.setItem('phone', value);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   async function signInWithPhoneNumber() {
     const confirmation = await auth().signInWithPhoneNumber(
@@ -24,7 +32,7 @@ const PhoneNumber: React.FC = () => {
 
     if (confirmation.verificationId) {
       navigation.navigate(USEREGISTORONINFO);
-      console.log(confirmation.verificationId);
+      storeData(`${selectCountry.code}${phoneNumber}`);
     } else {
       Alert.alert('Hatalı Telefon Numarası');
     }
@@ -40,7 +48,6 @@ const PhoneNumber: React.FC = () => {
   const sentence =
     'Please confirm your country code and enter your phone number';
   const capitalizedSentence = capitalizeWords(sentence);
-  console.log(capitalizedSentence);
 
   useEffect(() => {
     dispatch(getCountriesCode());

@@ -26,6 +26,7 @@ const TabNavigation: React.FC = () => {
 
   return (
     <Tab.Navigator
+      initialRouteName={SETTINGS} // bir sayfaya direk yonlendırmek ıcın
       screenOptions={({route}) => ({
         headerTitleAlign: 'center',
         // headerRight: true,
@@ -39,7 +40,7 @@ const TabNavigation: React.FC = () => {
         tabBarInactiveTintColor: Colors.GRAY_2,
       })}>
       <Tab.Screen name={STATUS} component={Status} />
-      <Tab.Screen name={CALLS} component={Calls} />
+
       <Tab.Screen name={CONTACTS} component={MyContacts} />
       <Tab.Screen
         options={({navigation}) => ({
@@ -65,6 +66,8 @@ const TabNavigation: React.FC = () => {
         name={CHATS}
         component={Chats}
       />
+
+      <Tab.Screen name={CALLS} component={Calls} />
       <Tab.Screen name={SETTINGS} component={Settings} />
     </Tab.Navigator>
   );

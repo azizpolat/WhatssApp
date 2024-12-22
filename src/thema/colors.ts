@@ -11,6 +11,7 @@ const enum Colors {
   YELLOW_1 = '#fdf6c4',
   YELLOW_2 = '#f53939',
   ORANGE = '#FF0080',
+  RED = '#ff0000',
 }
 
 export default Colors;
